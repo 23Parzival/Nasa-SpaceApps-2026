@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 355819225}
   - component: {fileID: 355819224}
   m_Layer: 0
-  m_Name: Square
+  m_Name: OuterSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -342,8 +342,8 @@ Transform:
   m_GameObject: {fileID: 355819223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.94, y: 0.08, z: 0}
-  m_LocalScale: {x: 6.5, y: 6.5, z: 1}
+  m_LocalPosition: {x: 2.7223165, y: 0, z: 0}
+  m_LocalScale: {x: 6.1099997, y: 6.1099997, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -382,7 +382,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -347, y: -300.75}
+  m_AnchoredPosition: {x: 167.147, y: 263.07184}
   m_SizeDelta: {x: 165.004, y: 26.0764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502139271
@@ -432,8 +432,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.7
+  m_fontSizeBase: 0.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.027345657, z: 160.8991, w: 25.037895}
+  m_margin: {x: 0, y: 0.027345657, z: 162.10738, w: 25.296812}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 511329257}
   - component: {fileID: 511329256}
   m_Layer: 0
-  m_Name: Square (1)
+  m_Name: InnerSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 1}
+  m_Color: {r: 0.07450981, g: 0.07450981, b: 0.07450981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -571,8 +571,8 @@ Transform:
   m_GameObject: {fileID: 511329255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.94, y: 0.08, z: 0}
-  m_LocalScale: {x: 6.3, y: 6.3, z: 1}
+  m_LocalPosition: {x: 2.7223165, y: 0, z: 0}
+  m_LocalScale: {x: 5.91, y: 5.91, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -689,7 +689,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.12452829, g: 0.12452829, b: 0.12452829, a: 1}
+  m_Color: {r: 0.07169801, g: 0.07169801, b: 0.07169801, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -708,8 +708,8 @@ Transform:
   m_GameObject: {fileID: 572038412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5734, y: 0.03, z: 0}
-  m_LocalScale: {x: 13.24361, y: 9.9690485, z: 1}
+  m_LocalPosition: {x: 2.7223165, y: 0, z: 0}
+  m_LocalScale: {x: 9.740033, y: 9.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -879,8 +879,8 @@ Transform:
   m_GameObject: {fileID: 899474743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.63616, y: -0.0041, z: 0}
-  m_LocalScale: {x: 7.12101, y: 9.991978, z: 1}
+  m_LocalPosition: {x: -4.9700165, y: 0, z: 0}
+  m_LocalScale: {x: 5.2446327, y: 9.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -919,7 +919,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -358.74, y: -300.75}
+  m_AnchoredPosition: {x: -304.58795, y: 263.07184}
   m_SizeDelta: {x: 165.004, y: 26.0764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952104566
@@ -969,8 +969,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.7
+  m_fontSizeBase: 0.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 158.3013, w: 25.037895}
+  m_margin: {x: 0, y: -0.66077614, z: 160.37265, w: 25.663612}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1022,6 +1022,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952104564}
   m_CullTransparentMesh: 1
+--- !u!1 &985257750
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 985257751}
+  - component: {fileID: 985257752}
+  m_Layer: 0
+  m_Name: LayoutController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &985257751
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985257750}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 162.48291, y: -4.64393, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985257752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985257750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52619f29e621cd548b714140c9806bb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraFitLayout
+  cam: {fileID: 63596455}
+  componentsPanel: {fileID: 899474745}
+  previewPanel: {fileID: 572038415}
+  previewOuterSquare: {fileID: 355819225}
+  previewInnerSquare: {fileID: 511329257}
+  componentsLabel: {fileID: 952104565}
+  previewLabel: {fileID: 502139270}
+  labelInsetPixels: 12
+  componentsWidthShare: 0.35
+  margin: 0.3
+  gap: 0.2
+  squareFill: 0.65
+  squareBorder: 0.1
 --- !u!1 &1106321887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,4 +1193,5 @@ SceneRoots:
   - {fileID: 800680251}
   - {fileID: 355819225}
   - {fileID: 511329257}
+  - {fileID: 985257751}
   - {fileID: 1106321891}
