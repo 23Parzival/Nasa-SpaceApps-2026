@@ -6,8 +6,8 @@
       "objectives": [
         { "location": "Venus", "depth": 0, "measure": "pressure", "toughness": 0, "minquota": 1 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 5,
+      "science": 10
     },
     {
       "title": "Measure the temperature data of Uranus.",
@@ -15,8 +15,8 @@
       "objectives": [
         { "location": "Uranus", "depth": 0, "measure": "temperature", "toughness": 0, "minquota": 1 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 5,
+      "science": 10
     },
     {
       "title": "Retrieve Earth humidity data.",
@@ -24,8 +24,8 @@
       "objectives": [
         { "location": "Earth", "depth": 0, "measure": "humidity", "toughness": 0, "minquota": 1 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 5,
+      "science": 10
     },
     {
       "title": "Deploy a satellite capable of long range travel to the asteroid belt.",
@@ -33,8 +33,8 @@
       "objectives": [
         { "location": "AsteroidBelt", "depth": 0, "measure": "empty", "toughness": 0, "minquota": 1 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 5,
+      "science": 10
     },
     {
       "title": "Collect topographic map data of the Moon.",
@@ -42,8 +42,8 @@
       "objectives": [
         { "location": "Moon", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 1 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 5,
+      "science": 10
     },
     {
       "title": "Collect solar radiation data.",
@@ -51,8 +51,8 @@
       "objectives": [
         { "location": "Sun", "depth": 0, "measure": "radiation", "toughness": 0, "minquota": 1 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 5,
+      "science": 10
     },
     {
       "title": "Investigate an unknown signal above Mars.",
@@ -60,8 +60,8 @@
       "objectives": [
         { "location": "Mars", "depth": 0, "measure": "antennastrength", "toughness": 0, "minquota": 1 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 5,
+      "science": 10
     }
   ],
   "medium": [
@@ -72,8 +72,8 @@
         { "location": "Earth", "depth": 0, "measure": "temperature", "toughness": 0, "minquota": 2 },
         { "location": "Earth", "depth": 0, "measure": "radiation", "toughness": 0, "minquota": 2 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 10,
+      "science": 25
     },
     {
       "title": "Conduct long term research of Neptune's gravity.",
@@ -82,8 +82,8 @@
         { "location": "Neptune", "depth": 0, "measure": "distance", "toughness": 0, "minquota": 2 },
         { "location": "Neptune", "depth": 0, "measure": "gravity", "toughness": 0, "minquota": 2 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 10,
+      "science": 25
     },
     {
       "title": "Obtain pictures and topographical maps of Mars.",
@@ -92,8 +92,8 @@
         { "location": "Mars", "depth": 0, "measure": "pictures", "toughness": 0, "minquota": 2 },
         { "location": "Mars", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 2 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 10,
+      "science": 25
     },
     {
       "title": "Analyze the atmospheric composition and pressure of Jupiter.",
@@ -102,8 +102,8 @@
         { "location": "Jupiter", "depth": 0, "measure": "pressure", "toughness": 0, "minquota": 2 },
         { "location": "Jupiter", "depth": 0, "measure": "composition", "toughness": 0, "minquota": 2 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 10,
+      "science": 25
     },
     {
       "title": "Obtain information on the magnetic properties of Saturn's rings.",
@@ -112,8 +112,8 @@
         { "location": "Saturn", "depth": 0, "measure": "magnetism", "toughness": 0, "minquota": 2 },
         { "location": "Saturn", "depth": 0, "measure": "antennastrength", "toughness": 0, "minquota": 2 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 10,
+      "science": 25
     }
   ],
   "hard": [
@@ -125,8 +125,8 @@
         { "location": "Earth", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 3 },
         { "location": "Earth", "depth": 0, "measure": "composition", "toughness": 0, "minquota": 3 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 20,
+      "science": 50
     },
     {
       "title": "Compile an indepth report on Mars' local radiation, gravity, and magnetic data.",
@@ -136,8 +136,8 @@
         { "location": "Mars", "depth": 0, "measure": "gravity", "toughness": 0, "minquota": 3 },
         { "location": "Mars", "depth": 0, "measure": "magnetism", "toughness": 0, "minquota": 3 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 20,
+      "science": 50
     },
     {
       "title": "Deploy a satellite capable of a long distance voyage to the edge of the solar system.",
@@ -147,8 +147,8 @@
         { "location": "SolarEdge", "depth": 0, "measure": "temperature", "toughness": 0, "minquota": 3 },
         { "location": "SolarEdge", "depth": 0, "measure": "rotation", "toughness": 0, "minquota": 3 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 20,
+      "science": 50
     },
     {
       "title": "Analyze Mercury's potential shareholder value.",
@@ -158,8 +158,8 @@
         { "location": "Mercury", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 3 },
         { "location": "Mercury", "depth": 0, "measure": "pictures", "toughness": 0, "minquota": 3 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 20,
+      "science": 50
     },
     {
       "title": "Perform scans of Uranus' surface.",
@@ -169,8 +169,8 @@
         { "location": "Uranus", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 3 },
         { "location": "Uranus", "depth": 0, "measure": "pressure", "toughness": 0, "minquota": 3 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 20,
+      "science": 50
     },
     {
       "title": "Analyze the atmospheric properties of Jupiter.",
@@ -180,8 +180,8 @@
         { "location": "Jupiter", "depth": 0, "measure": "composition", "toughness": 0, "minquota": 3 },
         { "location": "Jupiter", "depth": 0, "measure": "pictures", "toughness": 0, "minquota": 3 }
       ],
-      "material": 0,
-      "science": 0
+      "material": 20,
+      "science": 50
     }
   ]
 }
