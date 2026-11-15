@@ -12,7 +12,7 @@ public class Populater:MonoBehaviour{
 
     void Update(){
         if(firstTime){
-            string componentsJson=File.ReadAllText("Assets/SatelliteDesigner/Json/satelliteComponents.json");
+            string componentsJson=File.ReadAllText("Assets/JSONs/satelliteComponents.json");
 
             JsonElement jsonRoot=JsonDocument.Parse(componentsJson).RootElement;
             JsonElement measuringInstrumentsElement=jsonRoot.GetProperty("measuringInstruments"),

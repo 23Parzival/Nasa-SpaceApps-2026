@@ -1,0 +1,117 @@
+{
+  "measuringInstruments":[
+    {
+      "name":"Barometer",
+      "measures":"pressure",
+      "tooltip":"Measures atmospheric pressure.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Antenna",
+      "measures":"antennastrength",
+      "tooltip":"Increases signal range.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Gyroscope",
+      "measures":"rotation",
+      "tooltip":"Records satellite orientation.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Magnetometer",
+      "measures":"magnetism",
+      "tooltip":"Measures the local magnetism around the satellite.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Camera",
+      "measures":"pictures",
+      "tooltip":"Snaps pictures of the area around the satellite...",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Radiation Sensor",
+      "measures":"radiation",
+      "tooltip":"Measures local radiation.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Humidity Sensor",
+      "measures":"humidity",
+      "tooltip":"Measures atmospheric humidity.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Mass Spectrometer",
+      "measures":"composition",
+      "tooltip":"Measures atmospheric composition.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Lidar",
+      "measures":"topography",
+      "tooltip":"Produces topographical maps.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Gravimeter",
+      "measures":"gravity",
+      "tooltip":"Measures gravitational fields around the satellite.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    },
+    {
+      "name":"Thermometer",
+      "measures":"temperature",
+      "tooltip":"Measures local temperature.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    }
+  ],
+  "power":[
+    {
+      "name":"Solar Panel",
+      "tooltip":"Increases the satellite's power supply via solar energy.",
+      "mass":0,
+      "volume":0,
+      "powerProduction":0
+    },
+    {
+      "name":"Large Battery",
+      "tooltip":"Increases the satellite's power supply, allowing it to travel much further.",
+      "mass":0,
+      "volume":0,
+      "powerProduction":0
+    }
+  ],
+  "protection":[
+    {
+      "name":"Heating Pad",
+      "tooltip":"Increases satellite tolerance to freezing temperatures.",
+      "toughness":0,
+      "mass":0,
+      "volume":0
+    }
+  ]
+}
