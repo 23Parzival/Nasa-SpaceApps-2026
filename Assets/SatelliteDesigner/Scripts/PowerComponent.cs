@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PowerComponent:BaseComponent{
-    public int PowerProduction{get;set;}
+    static int PowerProduction{get;set;}
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +13,15 @@ public class PowerComponent:BaseComponent{
     void Update()
     {
         
+    }
+    public static Button Get(string name,string tooltip,int mass,int volume,int powerProduction){
+        Name=name;
+        Tooltip=tooltip;
+        Mass=mass;
+        Volume=volume;
+        PowerProduction=powerProduction;
+        Button button=new Button();
+        button.text=name;
+        return button;
     }
 }
