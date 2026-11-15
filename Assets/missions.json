@@ -1,468 +1,187 @@
-[
-  "easy":[
+{
+  "easy": [
     {
-      "title":"Investigate the pressure on Venus' surface.",
-      "description":"Corpedia wishes to explore the habitation potential of the planet Venus; deploy a satellite capable of monitoring atmospheric pressure to the planet.",
-      "objectives":[
-	{
-          "location":"venus",
-          "depth":0,
-      	 "measure":"pressure",
-	 "toughness":0,
-	 "minquota":1
-        }
+      "title": "Investigate the pressure on Venus' surface.",
+      "description": "Corpedia wishes to explore the habitation potential of the planet Venus; deploy a satellite capable of monitoring atmospheric pressure to the planet.",
+      "objectives": [
+        { "location": "Venus", "depth": 0, "measure": "pressure", "toughness": 0, "minquota": 1 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
     {
-      "title":"Measure the temperature data of Uranus.",
-      "description":"Corpedia wants to explore Uranus as a potential site for the construction of a cryogenic weapons facility; deploy a satellite capable of measuring its local temperature.",
-      "objectives":[
-	{
-          "location":"uranus",
-	 "depth":0,
-      	 "measure":"temperature",
-	 "toughness":0,
-	 "minquota":1
-        }
+      "title": "Measure the temperature data of Uranus.",
+      "description": "Corpedia wants to explore Uranus as a potential site for the construction of a cryogenic weapons facility; deploy a satellite capable of measuring its local temperature.",
+      "objectives": [
+        { "location": "Uranus", "depth": 0, "measure": "temperature", "toughness": 0, "minquota": 1 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-   {
-      "title":"Retrieve Earth humidity data.",
-      "description":"Corpedia records indicate that Earth was once a lush world with a great resource; water. Deploy a satellite capable of analyzing humidity data on the planet.",
-      "objectives":[
-	{
-          "location":"earth",
-          "depth":0,
-      	 "measure":"humidity",
-	 "toughness":0,
-	 "minquota":1
-        }
+    {
+      "title": "Retrieve Earth humidity data.",
+      "description": "Corpedia records indicate that Earth was once a lush world with a great resource; water. Deploy a satellite capable of analyzing humidity data on the planet.",
+      "objectives": [
+        { "location": "Earth", "depth": 0, "measure": "humidity", "toughness": 0, "minquota": 1 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-   {
-      "title":"Deploy a satellite capable of long range travel to the asteroid belt.",
-      "description":"Potential mineral deposits embedded in asteroids within the asteroid belt require immediate satellite analysis; deploy a satellite with enough power to travel to the asteroid belt.",
-      "objectives":[
-	{
-          "location":"asteroidbelt",
-          "depth":0,
-      	 "measure":"empty",
-	 "toughness":0,
-	 "minquota":1
-        }
+    {
+      "title": "Deploy a satellite capable of long range travel to the asteroid belt.",
+      "description": "Potential mineral deposits embedded in asteroids within the asteroid belt require immediate satellite analysis; deploy a satellite with enough power to travel to the asteroid belt.",
+      "objectives": [
+        { "location": "AsteroidBelt", "depth": 0, "measure": "empty", "toughness": 0, "minquota": 1 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-   {
-      "title":"Collect topographic map data of the Moon.",
-      "description":"Corpedia is interested in potential ruin sites on the Moon; deploy a satellite with the instruments necessary to collect topographic data.",
-      "objectives":[
-	{
-          "location":"moon",
-          "depth":0,
-      	 "measure":"topography",
-	 "toughness":0,
-	 "minquota":1
-        }
+    {
+      "title": "Collect topographic map data of the Moon.",
+      "description": "Corpedia is interested in potential ruin sites on the Moon; deploy a satellite with the instruments necessary to collect topographic data.",
+      "objectives": [
+        { "location": "Moon", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 1 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-   {
-      "title":"Collect solar radiation data.",
-      "description":"Corpedia is interested in harnessing solar radiation as a form of energy; deploy a satellite that can measure radiation data.",
-      "objectives":[
-	{
-          "location":"sun",
-          "depth":0,
-      	 "measure":"radiation",
-	 "toughness":0,
-	 "minquota":1
-        }
+    {
+      "title": "Collect solar radiation data.",
+      "description": "Corpedia is interested in harnessing solar radiation as a form of energy; deploy a satellite that can measure radiation data.",
+      "objectives": [
+        { "location": "Sun", "depth": 0, "measure": "radiation", "toughness": 0, "minquota": 1 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-   {
-      "title":"Investigate an unknown signal above Mars.",
-      "description":"Corpedia would like to remind all employees that all rumors of Martians are myth, rumor, and hearsay. Deploy a satellite that can recieve and transmit signals long range.",
-      "objectives":[
-	{
-          "location":"mars",
-          "depth":0,
-      	 "measure":"antennastrength",
-	 "toughness":0,
-	 "minquota":1
-        }
+    {
+      "title": "Investigate an unknown signal above Mars.",
+      "description": "Corpedia would like to remind all employees that all rumors of Martians are myth, rumor, and hearsay. Deploy a satellite that can recieve and transmit signals long range.",
+      "objectives": [
+        { "location": "Mars", "depth": 0, "measure": "antennastrength", "toughness": 0, "minquota": 1 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     }
   ],
-  "medium":[
-   {
-      "title":"Record Earth's temperature and radiation data.",
-      "description":"Corpedia is legally mandated to verify the historical accuracy of claims of nuclear radiation on the Earth's surface. Deploy a satellite capable of recording both temperature and radiation info.",
-      "objectives":[
-	{
-          "location":"earth",
-          "depth":0,
-      	 "measure":"temperature",
-	 "toughness":0,
-	 "minquota":2
-        }
+  "medium": [
+    {
+      "title": "Record Earth's temperature and radiation data.",
+      "description": "Corpedia is legally mandated to verify the historical accuracy of claims of nuclear radiation on the Earth's surface. Deploy a satellite capable of recording both temperature and radiation info.",
+      "objectives": [
+        { "location": "Earth", "depth": 0, "measure": "temperature", "toughness": 0, "minquota": 2 },
+        { "location": "Earth", "depth": 0, "measure": "radiation", "toughness": 0, "minquota": 2 }
       ],
-      "objectives":[
-	     {
-		"location":"earth",
-		"depth":0,
-		"measure":"radiation",
-		"toughness":0,
-		"minquota":2
-	     }
+      "material": 0,
+      "science": 0
+    },
+    {
+      "title": "Conduct long term research of Neptune's gravity.",
+      "description": "Corpedia, in a charitable donation of information to the Society of Gravitational Investigation, requires data on Neptune's gravitational pull over a long period of time. Deploy a satellite with enough power for long term research that can also measure gravity.",
+      "objectives": [
+        { "location": "Neptune", "depth": 0, "measure": "distance", "toughness": 0, "minquota": 2 },
+        { "location": "Neptune", "depth": 0, "measure": "gravity", "toughness": 0, "minquota": 2 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
+    },
+    {
+      "title": "Obtain pictures and topographical maps of Mars.",
+      "description": "Corpedia would like to remind all employees that any and all depictions of Martian civilization are completely fabricated. Deploy a satellite capable of taking pictures and producing topographical maps.",
+      "objectives": [
+        { "location": "Mars", "depth": 0, "measure": "pictures", "toughness": 0, "minquota": 2 },
+        { "location": "Mars", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 2 }
+      ],
+      "material": 0,
+      "science": 0
+    },
+    {
+      "title": "Analyze the atmospheric composition and pressure of Jupiter.",
+      "description": "To outline parameters for future operations on Jupiter, deploy a satellite both able to analyze atmospheric composition and pressure.",
+      "objectives": [
+        { "location": "Jupiter", "depth": 0, "measure": "pressure", "toughness": 0, "minquota": 2 },
+        { "location": "Jupiter", "depth": 0, "measure": "composition", "toughness": 0, "minquota": 2 }
+      ],
+      "material": 0,
+      "science": 0
+    },
+    {
+      "title": "Obtain information on the magnetic properties of Saturn's rings.",
+      "description": "Before mining operations can begin on Saturn's rings, Corpedia requires data on their potential magnetism; additionally, ensure the satellite is equipped for long distance signal transception.",
+      "objectives": [
+        { "location": "Saturn", "depth": 0, "measure": "magnetism", "toughness": 0, "minquota": 2 },
+        { "location": "Saturn", "depth": 0, "measure": "antennastrength", "toughness": 0, "minquota": 2 }
+      ],
+      "material": 0,
+      "science": 0
     }
   ],
-  {
-      "title":"Conduct long term research of Neptune's gravity.",
-      "description":"Corpedia, in a charitable donation of information to the Society of Gravitational Investigation, requires data on Neptune's gravitational pull over a long period of time. Deploy a satellite with enough power for long term research that can also measure gravity.",
-      "objectives":[
-	{
-          "location":"neptune",
-          "depth":0,
-      	 "measure":"distance",
-	 "toughness":0,
-	 "minquota":2
-        }
+  "hard": [
+    {
+      "title": "Compile a long term report on Earth's topographic data and atmospheric composition.",
+      "description": "Earth is a barren rock. Corpedia requires a satellite with the power supply for long term analysis, and a system to obtain topograhic data and atmospheric composition.",
+      "objectives": [
+        { "location": "Earth", "depth": 0, "measure": "empty", "toughness": 0, "minquota": 3 },
+        { "location": "Earth", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 3 },
+        { "location": "Earth", "depth": 0, "measure": "composition", "toughness": 0, "minquota": 3 }
       ],
-      "objectives":[
-	     {
-		"location":"neptune",
-		"depth":0,
-		"measure":"gravity",
-		"toughness":0,
-		"minquota":2
-	     }
-      ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-  {
-      "title":"Obtain pictures and topographical maps of Mars.",
-      "description":"Corpedia would like to remind all employees that any and all depictions of Martian civilization are completely fabricated. Deploy a satellite capable of taking pictures and producing topographical maps.",
-      "objectives":[
-	{
-          "location":"Mars",
-          "depth":0,
-      	 "measure":"pictures",
-	 "toughness":0,
-	 "minquota":2
-        }
+    {
+      "title": "Compile an indepth report on Mars' local radiation, gravity, and magnetic data.",
+      "description": "Corpedia would like to remind all its employees that there are no Martian weapon caches hidden beneath the surface of the planet. Deploy a satellite that can analyze Mars' radiation, gravity, and magnetic data.",
+      "objectives": [
+        { "location": "Mars", "depth": 0, "measure": "radiation", "toughness": 0, "minquota": 3 },
+        { "location": "Mars", "depth": 0, "measure": "gravity", "toughness": 0, "minquota": 3 },
+        { "location": "Mars", "depth": 0, "measure": "magnetism", "toughness": 0, "minquota": 3 }
       ],
-      "objectives":[
-	     {
-		"location":"Mars",
-		"depth":0,
-		"measure":"topography",
-		"toughness":0,
-		"minquota":2
-	     }
-      ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-  {
-      "title":"Analyze the atmospheric composition and pressure of Jupiter.",
-      "description":"To outline parameters for future operations on Jupiter, deploy a satellite both able to analyze atmospheric composition and pressure.",
-      "objectives":[
-	{
-          "location":"Jupiter",
-          "depth":0,
-      	 "measure":"pressure",
-	 "toughness":0,
-	 "minquota":2
-        }
+    {
+      "title": "Deploy a satellite capable of a long distance voyage to the edge of the solar system.",
+      "description": "In partnership with Galactic Atlas, Corpedia requires a satellite capable of long distance travel, with devices to monitor local temperatures and the rotation of the satellite.",
+      "objectives": [
+        { "location": "SolarEdge", "depth": 0, "measure": "empty", "toughness": 0, "minquota": 3 },
+        { "location": "SolarEdge", "depth": 0, "measure": "temperature", "toughness": 0, "minquota": 3 },
+        { "location": "SolarEdge", "depth": 0, "measure": "rotation", "toughness": 0, "minquota": 3 }
       ],
-      "objectives":[
-	     {
-		"location":"Jupiter",
-		"depth":0,
-		"measure":"composition",
-		"toughness":0,
-		"minquota":2
-	     }
-      ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-  {
-      "title":"Obtain information on the magnetic properties of Saturn's rings.",
-      "description":"Before mining operations can begin on Saturn's rings, Corpedia requires data on their potential magnetism; additionally, ensure the satellite is equipped for long distance signal transception.",
-      "objectives":[
-	{
-          "location":"saturn",
-          "depth":0,
-      	 "measure":"magnetism",
-	 "toughness":0,
-	 "minquota":2
-        }
+    {
+      "title": "Analyze Mercury's potential shareholder value.",
+      "description": "Corpedia, to produce an accurate financial gains estimate on Mercury, requires temperature data, a topographic map, and images of the planet.",
+      "objectives": [
+        { "location": "Mercury", "depth": 0, "measure": "temperature", "toughness": 0, "minquota": 3 },
+        { "location": "Mercury", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 3 },
+        { "location": "Mercury", "depth": 0, "measure": "pictures", "toughness": 0, "minquota": 3 }
       ],
-      "objectives":[
-	     {
-		"location":"saturn",
-		"depth":0,
-		"measure":"antennastrength",
-		"toughness":0,
-		"minquota":2
-	     }
-      ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     },
-
-
-
-  "hard":[
-  {
-      "title":"Compile a long term report on Earth's topographic data and atmospheric composition.",
-      "description":"Earth is a barren rock. Corpedia requires a satellite with the power supply for long term analysis, and a system to obtain topograhic data and atmospheric composition.",
-      "objectives":[
-	{
-          "location":"earth",
-          "depth":0,
-      	 "measure":"empty",
-	 "toughness":0,
-	 "minquota":3
-        }
+    {
+      "title": "Perform scans of Uranus' surface.",
+      "description": "To facilitate the approved construction of a cryogenics weapons facility on Uranus' surface, Corpedia requires a satellite capable of surviving in an extremely cold environment to collect topographical and atmospheric pressure data.",
+      "objectives": [
+        { "location": "Uranus", "depth": 0, "measure": "empty", "toughness": 0, "minquota": 3 },
+        { "location": "Uranus", "depth": 0, "measure": "topography", "toughness": 0, "minquota": 3 },
+        { "location": "Uranus", "depth": 0, "measure": "pressure", "toughness": 0, "minquota": 3 }
       ],
-      "objectives":[
-	     {
-		"location":"earth",
-		"depth":0,
-		"measure":"topography",
-		"toughness":0,
-		"minquota":3
-	     },
-	"objectives":[
-		{
-		"location":"earth",
-		"depth":0,
-		"measure":"composition",
-		"toughness":0,
-		"minquota":3
-		}
-	]
+      "material": 0,
+      "science": 0
+    },
+    {
+      "title": "Analyze the atmospheric properties of Jupiter.",
+      "description": "Corpedia would like to remind all employees that the infamous storm of Jupiter is a natural phenomenon and not at all a sign of the end times. Deploy a satellite able to monitor atmospheric pressure, composition, and take pictures.",
+      "objectives": [
+        { "location": "Jupiter", "depth": 0, "measure": "pressure", "toughness": 0, "minquota": 3 },
+        { "location": "Jupiter", "depth": 0, "measure": "composition", "toughness": 0, "minquota": 3 },
+        { "location": "Jupiter", "depth": 0, "measure": "pictures", "toughness": 0, "minquota": 3 }
       ],
-      "material":0,
-      "science":0
+      "material": 0,
+      "science": 0
     }
-
   ]
-{
-      "title":"Compile an indepth report on Mars' local radiation, gravity, and magnetic data.",
-      "description":"Corpedia would like to remind all its employees that there are no Martian weapon caches hidden beneath the surface of the planet. Deploy a satellite that can analyze Mars' radiation, gravity, and magnetic data.",
-      "objectives":[
-	{
-          "location":"mars",
-          "depth":0,
-      	 "measure":"radiation",
-	 "toughness":0,
-	 "minquota":3
-        }
-      ],
-      "objectives":[
-	     {
-		"location":"mars",
-		"depth":0,
-		"measure":"gravity",
-		"toughness":0,
-		"minquota":3
-	     },
-	"objectives":[
-		{
-		"location":"earth",
-		"depth":0,
-		"measure":"magnetism",
-		"toughness":0,
-		"minquota":3
-		}
-	]
-      ],
-      "material":0,
-      "science":0
-    }
-{
-      "title":"Deploy a satellite capable of a long distance voyage to the edge of the solar system.",
-      "description":"In partnership with Galactic Atlas, Corpedia requires a satellite capable of long distance travel, with devices to monitor local temperatures and the rotation of the satellite.",
-      "objectives":[
-	{
-          "location":"solaredge",
-          "depth":0,
-      	 "measure":"empty",
-	 "toughness":0,
-	 "minquota":3
-        }
-      ],
-      "objectives":[
-	     {
-		"location":"solaredge",
-		"depth":0,
-		"measure":"temperature",
-		"toughness":0,
-		"minquota":3
-	     },
-	"objectives":[
-		{
-		"location":"solaredge",
-		"depth":0,
-		"measure":"rotation",
-		"toughness":0,
-		"minquota":3
-		}
-	]
-      ],
-      "material":0,
-      "science":0
-    }
-{
-      "title":"Analyze Mercury's potential shareholder value.",
-      "description":"Corpedia, to produce an accurate financial gains estimate on Mercury, requires temperature data, a topographic map, and images of the planet.",
-      "objectives":[
-	{
-          "location":"mercury",
-          "depth":0,
-      	 "measure":"temperature",
-	 "toughness":0,
-	 "minquota":3
-        }
-      ],
-      "objectives":[
-	     {
-		"location":"mercury",
-		"depth":0,
-		"measure":"topography",
-		"toughness":0,
-		"minquota":3
-	     },
-	"objectives":[
-		{
-		"location":"mercury",
-		"depth":0,
-		"measure":"pictures",
-		"toughness":0,
-		"minquota":3
-		}
-	]
-      ],
-      "material":0,
-      "science":0
-    }
-{
-      "title":"Compile a long term report on Earth's topographic data and atmospheric composition.",
-      "description":"Earth is a barren rock. Corpedia requires a satellite with the power supply for long term analysis, and a system to obtain topograhic data and atmospheric composition.",
-      "objectives":[
-	{
-          "location":"earth",
-          "depth":0,
-      	 "measure":"empty",
-	 "toughness":0,
-	 "minquota":3
-        }
-      ],
-      "objectives":[
-	     {
-		"location":"earth",
-		"depth":0,
-		"measure":"topography",
-		"toughness":0,
-		"minquota":3
-	     },
-	"objectives":[
-		{
-		"location":"earth",
-		"depth":0,
-		"measure":"composition",
-		"toughness":0,
-		"minquota":3
-		}
-	]
-      ],
-      "material":0,
-      "science":0
-    }
-{
-      "title":"Perform scans of Uranus' surface.",
-      "description":"To facilitate the approved construction of a cryogenics weapons facility on Uranus' surface, Corpedia requires a satellite capable of surviving in an extremely cold environment to collect topographical and atmospheric pressure data.",
-      "objectives":[
-	{
-          "location":"uranus",
-          "depth":0,
-      	 "measure":"empty",
-	 "toughness":0,
-	 "minquota":3
-        }
-      ],
-      "objectives":[
-	     {
-		"location":"uranus",
-		"depth":0,
-		"measure":"topography",
-		"toughness":0,
-		"minquota":3
-	     },
-	"objectives":[
-		{
-		"location":"uranus",
-		"depth":0,
-		"measure":"pressure",
-		"toughness":0,
-		"minquota":3
-		}
-	]
-      ],
-      "material":0,
-      "science":0
-    }
-{
-      "title":"Analyze the atmospheric properties of Jupiter.",
-      "description":"Corpedia would like to remind all employees that the infamous storm of Jupiter is a natural phenomenon and not at all a sign of the end times. Deploy a satellite able to monitor atmospheric pressure, composition, and take pictures.",
-      "objectives":[
-	{
-          "location":"jupiter",
-          "depth":0,
-      	 "measure":"pressure",
-	 "toughness":0,
-	 "minquota":3
-        }
-      ],
-      "objectives":[
-	     {
-		"location":"jupiter",
-		"depth":0,
-		"measure":"composition",
-		"toughness":0,
-		"minquota":3
-	     },
-	"objectives":[
-		{
-		"location":"jupiter",
-		"depth":0,
-		"measure":"pictures",
-		"toughness":0,
-		"minquota":3
-		}
-	]
-      ],
-      "material":0,
-      "science":0
-    }
-]
+}
