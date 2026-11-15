@@ -8627,12 +8627,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -16891,6 +16891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SettingsPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2636366699442798707, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3083109178761217241, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -16970,6 +16974,46 @@ PrefabInstance:
     - target: {fileID: 3083109178761217241, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502643504862159336, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502643504862159336, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502643504862159336, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167219308922066412, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5167219308922066412, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549957219948980739, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549957219948980739, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8549957219948980739, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181368942177805418, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181368942177805418, guid: 71e740202e7e69c48a0ac0c2f2bcca8c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
