@@ -1,0 +1,99 @@
+{
+
+
+  "Mercury": {
+    "Mass": 0.33010,              
+    "Density": 5429,             
+    "Gravity": 3.70,             
+    "Escape Velocity": 4.3,      
+    "Length Of Day": 4222.6,    
+    "Rotation Period": 1407.6,   
+    "Temperature": 167,          
+    "Ring System": false,
+    "Natural Satellites": 0
+  },
+
+  "Venus": {
+    "Mass": 4.8673,             
+    "Density": 5243,              
+    "Gravity": 8.87,              
+    "Escape Velocity": 10.36,    
+    "Length Of Day": 2802.0,    
+    "Rotation Period": -5832.6,  
+    "Temperature": 464,         
+    "Ring System": false,
+    "Natural Satellites": 0
+  },
+
+  "Earth": {
+    "Mass": 5.9722,              
+    "Density": 5513,             
+    "Gravity": 9.820,          
+    "Escape Velocity": 11.186,  
+    "Length Of Day": 24.0000,   
+    "Rotation Period": 23.9345,  
+    "Temperature": 15,           
+    "Ring System": false,
+    "Natural Satellites": 1
+  },
+
+  "Mars": {
+    "Mass": 0.64169,             
+    "Density": 3934,           
+    "Gravity": 3.73,         
+    "Escape Velocity": 5.03,      
+    "Length Of Day": 24.6597,     
+    "Rotation Period": 24.6229,   
+    "Temperature": -59,          
+    "Ring System": false,
+    "Natural Satellites": 2
+  },
+
+  "Jupiter": {
+    "Mass": 1898.13,              
+    "Density": 1326,            
+    "Gravity": 25.92,            
+    "Escape Velocity": 59.5,    
+    "Length Of Day": 9.9259,      
+    "Rotation Period": 9.9250,   
+    "Temperature": -108,        
+    "Ring System": true,
+    "Natural Satellites": 95
+  },
+
+  "Saturn": {
+    "Mass": 568.32,             
+    "Density": 687,              
+    "Gravity": 11.19,             
+    "Escape Velocity": 35.5,    
+    "Length Of Day": 10.656,     
+    "Rotation Period": 10.656,   
+    "Temperature": -139,         
+    "Ring System": true,
+    "Natural Satellites": 274
+  },
+
+  "Uranus": {
+    "Mass": 86.811,              
+    "Density": 1270,            
+    "Gravity": 9.01,             
+    "Escape Velocity": 21.3,      
+    "Length Of Day": 17.24,      
+    "Rotation Period": -17.24,  
+    "Temperature": -197,      
+    "Ring System": true,
+    "Natural Satellites": 28
+  },
+
+  "Neptune": {
+    "Mass": 102.409,             
+    "Density": 1638,             
+    "Gravity": 11.27,           
+    "Escape Velocity": 23.5,     
+    "Length Of Day": 16.11,     
+    "Rotation Period": 16.11,  
+    "Temperature": -201,          
+    "Ring System": true,
+    "Natural Satellites": 16
+  }
+}
