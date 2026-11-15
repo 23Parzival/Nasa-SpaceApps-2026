@@ -1,9 +1,15 @@
 using UnityEngine;
 
+//mission terminal
 public class DeskCommand : Interactable
 {
+    [SerializeField] private MissionTerminal terminal;
+
     public override void Interact()
     {
-        Debug.Log("Command Desk: doing fancy controls or smt");
+        if (terminal != null)
+        {
+            terminal.Open();
+        }
     }
 }
