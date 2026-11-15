@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -21,12 +22,24 @@ public class CameraFitLayout : MonoBehaviour
     public RectTransform previewLabel;       // "PreviewLbl"
     public float labelInsetPixels = 12f;     // distance below the panel's top edge
 
+    [Header("Instruction text (centered under the Components label)")]
+    public RectTransform instructionLabel;   // "InstructionLbl" (wrapping must be enabled)
+    public float instructionGapPixels = 8f;          // space below the Components label
+    public float instructionHeightPixels = 70f;
+    public float instructionSidePaddingPixels = 20f; // space to the panel's left/right edges
+    public Vector2 instructionOffsetPixels;          // nudge the label here (x, y), not in its Transform
+    public bool centerInstructionText = true;        // force horizontally centered text
+
     [Header("Stats labels (stacked top to bottom, right side of Preview)")]
     public RectTransform[] statsLabels;      // mass, volume, energy produced, energy consumed
     [Range(0f, 0.45f)] public float statsColumnShare = 0.28f; // share of Preview width
     public float statsRowHeightPixels = 36f;
     public float statsRowSpacingPixels = 10f;
     public float statsColumnPaddingPixels = 10f;
+
+    [Header("Reset button (bottom of the Components panel)")]
+    public RectTransform resetButton;
+    public float resetButtonBottomInsetPixels = 24f;
 
     [Header("Layout (world units)")]
     [Range(0.2f, 0.5f)] public float componentsWidthShare = 0.35f;
@@ -79,9 +92,12 @@ public class CameraFitLayout : MonoBehaviour
 
         PlaceTopLabel(componentsLabel, compX, top);
         PlaceTopLabel(previewLabel, prevX, top);
+        PlaceInstruction(compX - compW / 2f, compX + compW / 2f, panelY);
 
         if (hasStats)
             PlaceStats(prevLeft + squareAreaW, prevLeft + prevW, panelY);
+
+        PlaceBottomElement(resetButton, compX, bottom, resetButtonBottomInsetPixels);
     }
 
     static void SetRect(Transform t, float x, float y, float w, float h)
@@ -105,6 +121,59 @@ public class CameraFitLayout : MonoBehaviour
         label.position = new Vector3(
             screen.x,
             screen.y - labelInsetPixels - label.rect.height * s / 2f,
+            0f);
+    }
+
+    void PlaceInstruction(float worldLeft, float worldRight, float worldY)
+    {
+        if (instructionLabel == null || componentsLabel == null) return;
+
+        // Make the rect predictable, whatever anchors/pivot it was created with.
+        CenterAnchorsAndPivot(instructionLabel);
+        if (centerInstructionText)
+        {
+            var tmp = instructionLabel.GetComponent<TMP_Text>();
+            if (tmp != null) tmp.alignment = TextAlignmentOptions.Top;
+        }
+
+        Vector3 sl = cam.WorldToScreenPoint(new Vector3(worldLeft, worldY, 0f));
+        Vector3 sr = cam.WorldToScreenPoint(new Vector3(worldRight, worldY, 0f));
+
+        float s = CanvasScale(instructionLabel);
+        float widthPx = Mathf.Max(10f, (sr.x - sl.x) - 2f * instructionSidePaddingPixels);
+        instructionLabel.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthPx / s);
+        instructionLabel.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, instructionHeightPixels / s);
+
+        // Bottom edge of the "Components" label, then step down from there.
+        float headerBottom = componentsLabel.position.y
+            - componentsLabel.rect.height * CanvasScale(componentsLabel) / 2f;
+        float y = headerBottom - instructionGapPixels - instructionHeightPixels / 2f;
+
+        instructionLabel.position = new Vector3(
+            (sl.x + sr.x) / 2f + instructionOffsetPixels.x,
+            y + instructionOffsetPixels.y,
+            0f);
+    }
+
+    static void CenterAnchorsAndPivot(RectTransform r)
+    {
+        var half = new Vector2(0.5f, 0.5f);
+        if (r.anchorMin != half || r.anchorMax != half || r.pivot != half)
+        {
+            r.anchorMin = half;
+            r.anchorMax = half;
+            r.pivot = half;
+        }
+    }
+
+    void PlaceBottomElement(RectTransform element, float worldX, float worldBottom, float insetPixels)
+    {
+        if (element == null) return;
+        float s = CanvasScale(element);
+        Vector3 screen = cam.WorldToScreenPoint(new Vector3(worldX, worldBottom, 0f));
+        element.position = new Vector3(
+            screen.x,
+            screen.y + insetPixels + element.rect.height * s / 2f,
             0f);
     }
 
