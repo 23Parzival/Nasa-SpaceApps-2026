@@ -1,15 +1,19 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-//mission terminal
-public class DeskCommand : Interactable
+public class TutorialPopup : MonoBehaviour
 {
-    [SerializeField] private MissionTerminal terminal;
-
-    public override void Interact()
+     void Start()
     {
-        if (terminal != null)
+        GameState.uiOpen = true;
+    }
+
+    void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            terminal.Open();
+            GameState.uiOpen = false;
+            gameObject.SetActive(false);
         }
     }
 }
