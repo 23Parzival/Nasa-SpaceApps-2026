@@ -25,8 +25,8 @@ public class Mission
     public string title;
     public string description;
     public MissionObjective[] objectives;
-    public float material;
-    public float science;
+    public int material;
+    public int science;
 
     //not in the JSON, filled in when the missions are loaded
     [NonSerialized] public MissionDifficulty difficulty;

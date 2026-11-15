@@ -1,29 +1,72 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//keeps track of the current quota, which missions the terminal is offering, the mission the player picked, and whether it's done.
+//keeps track of the current quota, its science target, which missions the terminal is offering, the mission the player picked, and the science/materials earned.
 //static so it survives going to the cubesat designer (chaging scenes) and back
 public static class MissionManager
 {
-    public const int FinalQuota = 5;
+    //one quota: the science needed to fill it and the difficulties of the three missions it offers
+    private class QuotaLevel
+    {
+        public readonly int target;
+        public readonly MissionDifficulty[] offers;
+
+        public QuotaLevel(int target, params MissionDifficulty[] offers)
+        {
+            this.target = target;
+            this.offers = offers;
+        }
+    }
+
+    //the best two missions of each quota always reach its target, so the player can always skip one
+    private static readonly QuotaLevel[] Quotas =
+    {
+        new QuotaLevel(20, MissionDifficulty.Easy, MissionDifficulty.Easy, MissionDifficulty.Easy),
+        new QuotaLevel(35, MissionDifficulty.Easy, MissionDifficulty.Medium, MissionDifficulty.Medium),
+        new QuotaLevel(60, MissionDifficulty.Easy, MissionDifficulty.Medium, MissionDifficulty.Hard),
+        new QuotaLevel(75, MissionDifficulty.Medium, MissionDifficulty.Medium, MissionDifficulty.Hard),
+        new QuotaLevel(100, MissionDifficulty.Medium, MissionDifficulty.Hard, MissionDifficulty.Hard),
+    };
+
+    public static int FinalQuota => Quotas.Length;
 
     public static int CurrentQuota { get; private set; } = 1;
+
+    //science points needed to fill the current quota
+    public static int QuotaTarget => Quotas[CurrentQuota - 1].target;
+
+    //science points earned this quota, goes back to 0 on the next one
+    public static int QuotaScience { get; private set; }
+
+    //all science points earned this game. this is basically game score
+    public static int TotalScience { get; private set; }
+
+    //mission rewards to spend in the cubesat designer, carries over between quotas
+    public static int Materials { get; private set; }
+
+    public static bool QuotaFilled => QuotaScience >= QuotaTarget;
+
+    //true once the final quota has been filled and turned in
+    public static bool GameWon { get; private set; }
 
     //mission the player picked, null = none
     public static Mission ActiveMission { get; private set; }
 
-    //true once this quota's mission is done, so the terminal doesn't give another one
-    public static bool MissionCompletedThisQuota { get; private set; }
-
     public static bool HasActiveMission => ActiveMission != null;
 
     //true when the terminal should show missions to pick from
-    public static bool CanPickMission => !HasActiveMission && !MissionCompletedThisQuota;
+    public static bool CanPickMission => !HasActiveMission && !GameWon;
+
+    //true when the terminal should show the next quota button
+    public static bool CanAdvanceQuota => QuotaFilled && !HasActiveMission && !GameWon;
 
     private static MissionList missions;
 
-    //choices for the current quota, kept so reopening the terminal shows the same ones
+    //missions of the current quota that haven't been picked yet, kept so reopening the terminal shows the same ones
     private static List<Mission> offeredMissions;
+
+    //missions already done this game, so they aren't offered again
+    private static readonly HashSet<Mission> completedMissions = new HashSet<Mission>();
 
     public static bool IsLoaded => missions != null;
 
@@ -31,9 +74,13 @@ public static class MissionManager
     public static void NewGame()
     {
         CurrentQuota = 1;
+        QuotaScience = 0;
+        TotalScience = 0;
+        Materials = 0;
+        GameWon = false;
         ActiveMission = null;
-        MissionCompletedThisQuota = false;
         offeredMissions = null;
+        completedMissions.Clear();
     }
 
     //reads missions.json
@@ -56,7 +103,7 @@ public static class MissionManager
         SetDifficulty(missions.hard, MissionDifficulty.Hard);
     }
 
-    //missions to choose from this quota: 1 easy on quota 1, easy + medium on quota 2, easy + medium + hard from quota 3 on
+    //missions left to choose from this quota (three to start with, picked ones are removed)
     public static IReadOnlyList<Mission> GetOfferedMissions()
     {
         if (!CanPickMission || !IsLoaded)
@@ -67,15 +114,11 @@ public static class MissionManager
         if (offeredMissions == null)
         {
             offeredMissions = new List<Mission>();
-            AddRandomMission(missions.easy);
-            if (CurrentQuota >= 2)
+            foreach (MissionDifficulty difficulty in Quotas[CurrentQuota - 1].offers)
             {
-                AddRandomMission(missions.medium);
+                AddRandomMission(PoolFor(difficulty));
             }
-            if (CurrentQuota >= 3)
-            {
-                AddRandomMission(missions.hard);
-            }
+            CheckQuotaCanBeFilled();
         }
 
         return offeredMissions;
@@ -90,11 +133,11 @@ public static class MissionManager
         }
 
         ActiveMission = mission;
-        offeredMissions = null;
+        offeredMissions.Remove(mission);
         return true;
     }
 
-    //call when the active mission succeeds
+    //call when the active mission succeeds, gives its science and materials
     public static void CompleteActiveMission()
     {
         if (!HasActiveMission)
@@ -102,21 +145,66 @@ public static class MissionManager
             return;
         }
 
+        QuotaScience += ActiveMission.science;
+        TotalScience += ActiveMission.science;
+        Materials += ActiveMission.material;
+        completedMissions.Add(ActiveMission);
         ActiveMission = null;
-        MissionCompletedThisQuota = true;
     }
 
-    //call when the quota system moves on to the next quota
-    public static void StartNextQuota()
+    //call when the active mission fails, it goes back on the terminal so it can be tried again
+    public static void FailActiveMission()
     {
-        if (CurrentQuota < FinalQuota)
+        if (!HasActiveMission)
         {
-            CurrentQuota++;
+            return;
         }
 
+        offeredMissions?.Add(ActiveMission);
         ActiveMission = null;
-        MissionCompletedThisQuota = false;
+    }
+
+    //called by the cubesat designer when the player pays for something
+    public static bool SpendMaterials(int amount)
+    {
+        if (amount < 0 || amount > Materials)
+        {
+            return false;
+        }
+
+        Materials -= amount;
+        return true;
+    }
+
+    //called by the terminal's next quota button. unfinished missions are dropped, leftover science doesn't carry over
+    public static bool StartNextQuota()
+    {
+        if (!CanAdvanceQuota)
+        {
+            return false;
+        }
+
         offeredMissions = null;
+
+        if (CurrentQuota >= FinalQuota)
+        {
+            GameWon = true;
+            return true;
+        }
+
+        CurrentQuota++;
+        QuotaScience = 0;
+        return true;
+    }
+
+    private static Mission[] PoolFor(MissionDifficulty difficulty)
+    {
+        switch (difficulty)
+        {
+            case MissionDifficulty.Medium: return missions.medium;
+            case MissionDifficulty.Hard: return missions.hard;
+            default: return missions.easy;
+        }
     }
 
     private static void SetDifficulty(Mission[] list, MissionDifficulty difficulty)
@@ -135,7 +223,8 @@ public static class MissionManager
         }
     }
 
-    //picks one mission from the list that's allowed on the current quota
+    //picks one mission from the list that's allowed on the current quota and isn't already offered.
+    //missions done earlier this game are skipped unless there's nothing else left
     private static void AddRandomMission(Mission[] list)
     {
         if (list == null)
@@ -143,18 +232,53 @@ public static class MissionManager
             return;
         }
 
-        List<Mission> allowed = new List<Mission>();
+        List<Mission> fresh = new List<Mission>();
+        List<Mission> repeats = new List<Mission>();
         foreach (Mission mission in list)
         {
-            if (mission != null && mission.MinQuota <= CurrentQuota)
+            if (mission == null || mission.MinQuota > CurrentQuota || offeredMissions.Contains(mission))
             {
-                allowed.Add(mission);
+                continue;
+            }
+
+            if (completedMissions.Contains(mission))
+            {
+                repeats.Add(mission);
+            }
+            else
+            {
+                fresh.Add(mission);
             }
         }
 
+        List<Mission> allowed = fresh.Count > 0 ? fresh : repeats;
         if (allowed.Count > 0)
         {
             offeredMissions.Add(allowed[Random.Range(0, allowed.Count)]);
+        }
+    }
+
+    //warns if the science values in missions.json break the "best two missions fill the quota" rule
+    private static void CheckQuotaCanBeFilled()
+    {
+        int best = 0;
+        int secondBest = 0;
+        foreach (Mission mission in offeredMissions)
+        {
+            if (mission.science > best)
+            {
+                secondBest = best;
+                best = mission.science;
+            }
+            else if (mission.science > secondBest)
+            {
+                secondBest = mission.science;
+            }
+        }
+
+        if (best + secondBest < QuotaTarget)
+        {
+            Debug.LogWarning("MissionManager: the best two missions offered on quota " + CurrentQuota + " only give " + (best + secondBest) + " science, doesnt meet quota: " + QuotaTarget + ".");
         }
     }
 }

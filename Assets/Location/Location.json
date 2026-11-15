@@ -1,0 +1,99 @@
+{
+	// sourcehttps://nssdc.gsfc.nasa.gov/planetary/factsheet/
+
+  "Mercury": {
+    "Mass": 0.33010,              // 10^24 kg
+    "Density": 5429,              // kg/m3 (mean)
+    "Gravity": 3.70,              // m/s2 (mean surface)
+    "Escape Velocity": 4.3,       // km/s
+    "Length Of Day": 4222.6,      // hours
+    "Rotation Period": 1407.6,    // hours (sidereal)
+    "Temperature": 167,           // degrees C (average)
+    "Ring System": false,
+    "Natural Satellites": 0
+  },
+
+  "Venus": {
+    "Mass": 4.8673,               // 10^24 kg
+    "Density": 5243,              // kg/m3 (mean)
+    "Gravity": 8.87,              // m/s2 (mean surface)
+    "Escape Velocity": 10.36,     // km/s
+    "Length Of Day": 2802.0,      // hours
+    "Rotation Period": -5832.6,   // hours (sidereal, negative = retrograde)
+    "Temperature": 464,           // degrees C (average)
+    "Ring System": false,
+    "Natural Satellites": 0
+  },
+
+  "Earth": {
+    "Mass": 5.9722,               // 10^24 kg
+    "Density": 5513,              // kg/m3 (mean)
+    "Gravity": 9.820,             // m/s2 (mean surface)
+    "Escape Velocity": 11.186,    // km/s
+    "Length Of Day": 24.0000,     // hours
+    "Rotation Period": 23.9345,   // hours (sidereal)
+    "Temperature": 15,            // degrees C (average)
+    "Ring System": false,
+    "Natural Satellites": 1
+  },
+
+  "Mars": {
+    "Mass": 0.64169,              // 10^24 kg
+    "Density": 3934,              // kg/m3 (mean)
+    "Gravity": 3.73,              // m/s2 (mean surface)
+    "Escape Velocity": 5.03,      // km/s
+    "Length Of Day": 24.6597,     // hours
+    "Rotation Period": 24.6229,   // hours (sidereal)
+    "Temperature": -59,           // degrees C (average)
+    "Ring System": false,
+    "Natural Satellites": 2
+  },
+
+  "Jupiter": {
+    "Mass": 1898.13,              // 10^24 kg
+    "Density": 1326,              // kg/m3 (mean)
+    "Gravity": 25.92,             // m/s2 (mean, at 1 bar level)
+    "Escape Velocity": 59.5,      // km/s
+    "Length Of Day": 9.9259,      // hours
+    "Rotation Period": 9.9250,    // hours (sidereal, System III)
+    "Temperature": -108,          // degrees C (at 1 bar level)
+    "Ring System": true,
+    "Natural Satellites": 95
+  },
+
+  "Saturn": {
+    "Mass": 568.32,               // 10^24 kg
+    "Density": 687,               // kg/m3 (mean)
+    "Gravity": 11.19,             // m/s2 (mean, at 1 bar level)
+    "Escape Velocity": 35.5,      // km/s
+    "Length Of Day": 10.656,      // hours
+    "Rotation Period": 10.656,    // hours (sidereal, System III)
+    "Temperature": -139,          // degrees C (at 1 bar level)
+    "Ring System": true,
+    "Natural Satellites": 274
+  },
+
+  "Uranus": {
+    "Mass": 86.811,               // 10^24 kg
+    "Density": 1270,              // kg/m3 (mean)
+    "Gravity": 9.01,              // m/s2 (mean, at 1 bar level)
+    "Escape Velocity": 21.3,      // km/s
+    "Length Of Day": 17.24,       // hours
+    "Rotation Period": -17.24,    // hours (sidereal, negative = retrograde)
+    "Temperature": -197,          // degrees C (at 1 bar level)
+    "Ring System": true,
+    "Natural Satellites": 28
+  },
+
+  "Neptune": {
+    "Mass": 102.409,              // 10^24 kg
+    "Density": 1638,              // kg/m3 (mean)
+    "Gravity": 11.27,             // m/s2 (mean, at 1 bar level)
+    "Escape Velocity": 23.5,      // km/s
+    "Length Of Day": 16.11,       // hours
+    "Rotation Period": 16.11,     // hours (sidereal)
+    "Temperature": -201,          // degrees C (at 1 bar level)
+    "Ring System": true,
+    "Natural Satellites": 16
+  }
+}

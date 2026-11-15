@@ -8,6 +8,18 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 input;
 
+    public SpriteRenderer spriteRenderer;
+
+    public Sprite left;
+
+    public Sprite right;
+
+    public Sprite down;
+
+    public Sprite up;
+
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameState.uiOpen) { input = Vector2.zero; return; }
         var kb = Keyboard.current;
         if (kb == null) return;
 
@@ -28,10 +41,26 @@ public class PlayerMovement : MonoBehaviour
         }
 
         float x = 0f, y = 0f;
-        if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) x -= 1f;
-        if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) x += 1f;
-        if (kb.sKey.isPressed || kb.downArrowKey.isPressed) y -= 1f;
-        if (kb.wKey.isPressed || kb.upArrowKey.isPressed) y += 1f;
+        if (kb.aKey.isPressed || kb.leftArrowKey.isPressed)
+        {
+            x -= 1f;
+            spriteRenderer.sprite = left;
+        }
+        if (kb.dKey.isPressed || kb.rightArrowKey.isPressed)
+        {
+            x += 1f;
+            spriteRenderer.sprite = right;
+        }
+        if (kb.sKey.isPressed || kb.downArrowKey.isPressed)
+        {
+            y -= 1f;
+            spriteRenderer.sprite = down;
+        }
+        if (kb.wKey.isPressed || kb.upArrowKey.isPressed)
+        {
+            y += 1f;
+            spriteRenderer.sprite = up;
+        }
 
         input = new Vector2(x, y).normalized;
     }
