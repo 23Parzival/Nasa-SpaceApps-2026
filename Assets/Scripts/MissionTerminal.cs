@@ -30,8 +30,9 @@ public class MissionTerminal : MonoBehaviour
     //how much lighter the next quota button is than a mission button
     [SerializeField] private float advanceButtonLighten = 0.15f;
 
-    //each option button's colour from the scene, so it can be put back after being the next quota button
+    //each option button's frame and text colour from the scene, so they can be put back after being the next quota button
     private Color[] optionColors;
+    private Color[] optionLabelColors;
 
     //small note shown to the left of the Close button
     [SerializeField] private TMP_Text footerLabel;
@@ -43,6 +44,14 @@ public class MissionTerminal : MonoBehaviour
         MissionManager.Load(missionsJson);
 
         optionColors = new Color[optionButtons.Length];
+        optionLabelColors = new Color[optionButtons.Length];
+        for (int i = 0; i < optionLabels.Length && i < optionLabelColors.Length; i++)
+        {
+            if (optionLabels[i] != null)
+            {
+                optionLabelColors[i] = optionLabels[i].color;
+            }
+        }
 
         for (int i = 0; i < optionButtons.Length; i++)
         {
@@ -179,19 +188,26 @@ public class MissionTerminal : MonoBehaviour
         }
     }
 
-    //makes an option button slightly lighter while it's the next quota button, normal colour otherwise
+    //makes an option button (frame and text) lighter while it's the next quota button, normal colour otherwise
     private void SetAdvanceColor(int index, bool isAdvance)
     {
         Graphic graphic = optionButtons[index].targetGraphic;
-        if (graphic == null)
+        if (graphic != null)
         {
-            return;
+            graphic.color = isAdvance ? Lighten(optionColors[index]) : optionColors[index];
         }
 
-        Color normal = optionColors[index];
+        if (index < optionLabels.Length && optionLabels[index] != null)
+        {
+            optionLabels[index].color = isAdvance ? Lighten(optionLabelColors[index]) : optionLabelColors[index];
+        }
+    }
+
+    private Color Lighten(Color normal)
+    {
         Color lighter = Color.Lerp(normal, Color.white, advanceButtonLighten);
         lighter.a = normal.a;
-        graphic.color = isAdvance ? lighter : normal;
+        return lighter;
     }
 
     //asks the player if they're sure about the mission they clicked, using the first two option buttons as yes / no
