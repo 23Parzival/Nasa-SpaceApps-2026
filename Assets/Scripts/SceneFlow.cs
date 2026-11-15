@@ -32,9 +32,6 @@ public static class SceneFlow
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void Init()
     {
-        //static values survive between play sessions in the editor when domain reload is off
-        returnPosition = null;
-        SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

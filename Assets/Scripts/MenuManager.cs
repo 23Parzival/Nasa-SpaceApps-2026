@@ -22,6 +22,7 @@ public class MenuManager : MonoBehaviour
     {
         GameSaveManager.ClearGameSaveToLoad();
         SceneFlow.ResetShipPosition();
+        MissionManager.NewGame();
         SceneManager.LoadScene(gameSceneName);
     }
 

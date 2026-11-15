@@ -20,6 +20,13 @@ public class PlayerMovement : MonoBehaviour
         var kb = Keyboard.current;
         if (kb == null) return;
 
+        //stand still while a terminal or minigame is open
+        if (GameState.minigameOpen)
+        {
+            input = Vector2.zero;
+            return;
+        }
+
         float x = 0f, y = 0f;
         if (kb.aKey.isPressed || kb.leftArrowKey.isPressed) x -= 1f;
         if (kb.dKey.isPressed || kb.rightArrowKey.isPressed) x += 1f;

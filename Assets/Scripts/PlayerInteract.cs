@@ -7,7 +7,7 @@ public class PlayerInteract : MonoBehaviour
 
     void Update()
     {
-        if (PauseMenu.IsPaused) return;
+        if (PauseMenu.IsPaused || GameState.minigameOpen) return;
 
         if (current != null && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
