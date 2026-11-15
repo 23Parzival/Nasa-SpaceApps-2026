@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PowerComponent:BaseComponent{
     static int PowerProduction{get;set;}
@@ -20,8 +20,6 @@ public class PowerComponent:BaseComponent{
         Mass=mass;
         Volume=volume;
         PowerProduction=powerProduction;
-        Button button=new Button();
-        button.text=name;
-        return button;
+        return new GameObject(name).AddComponent<Button>();
     }
 }

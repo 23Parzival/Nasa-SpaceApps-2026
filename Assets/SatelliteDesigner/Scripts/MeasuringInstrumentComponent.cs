@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class MeasuringInstrumentComponent:BaseComponent{
     static string Measures{get;set;}
@@ -19,8 +19,6 @@ public class MeasuringInstrumentComponent:BaseComponent{
         Volume=volume;
         Measures=measures;
         PowerConsumption=powerConsumption;
-        Button button=new Button();
-        button.text=name;
-        return button;
+        return new GameObject(name).AddComponent<Button>();
     }
 }

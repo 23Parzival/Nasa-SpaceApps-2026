@@ -1,4 +1,4 @@
-[
+{
   "measuringInstruments":[
     {
       "name":"Barometer",
@@ -19,10 +19,12 @@
     }
   ],
   "protection":[
-    "name":"placeholdershielding",
-    "tooltip":"placeholderTooltip",
-    "toughness":0,
-    "mass":0,
-    "volume":0
+    {
+      "name":"placeholdershielding",
+      "tooltip":"placeholderTooltip",
+      "toughness":0,
+      "mass":0,
+      "volume":0
+    }
   ]
-]
+}

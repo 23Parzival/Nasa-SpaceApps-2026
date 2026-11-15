@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class ProtectionComponent:BaseComponent{
     static int Toughness{get;set;}
@@ -20,8 +20,6 @@ public class ProtectionComponent:BaseComponent{
         Mass=mass;
         Volume=volume;
         Toughness=toughness;
-        Button button=new Button();
-        button.text=name;
-        return button;
+        return new GameObject(name).AddComponent<Button>();
     }
 }

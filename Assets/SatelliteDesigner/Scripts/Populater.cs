@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 using System.Text.Json;
 using System.Text.Json.Nodes;
@@ -8,6 +8,8 @@ using System;
 
 public class Populater:MonoBehaviour{
     private bool firstTime=true;
+    [SerializeField] private Canvas root;
+
     void Update(){
         if(firstTime){
             string componentsJson=File.ReadAllText("Assets/SatelliteDesigner/Json/satelliteComponents.json");
@@ -17,9 +19,7 @@ public class Populater:MonoBehaviour{
                         powersElement=jsonRoot.GetProperty("power"),
                         protectionsElement=jsonRoot.GetProperty("protection");
 
-            ScrollView componentList=new ScrollView(ScrollViewMode.Vertical);
-            componentList.style.width=425;
-            componentList.style.height=650;
+            Transform componentList=root.transform.Find("ComponentList").GetComponent<ScrollRect>().content;
             foreach (JsonElement measuringInstrument in measuringInstrumentsElement.EnumerateArray()){
                 JsonElement name=measuringInstrument.GetProperty("name"),
                             measures=measuringInstrument.GetProperty("measures"),
@@ -27,7 +27,7 @@ public class Populater:MonoBehaviour{
                             tooltip=measuringInstrument.GetProperty("tooltip"),
                             volume=measuringInstrument.GetProperty("volume"),
                             powerConsumption=measuringInstrument.GetProperty("powerConsumption");
-                componentList.Add(MeasuringInstrumentComponent.Get(name.GetString(),tooltip.GetString(),mass.GetInt16(),volume.GetInt16(),measures.GetString(),powerConsumption.GetInt16()));
+                MeasuringInstrumentComponent.Get(name.GetString(),tooltip.GetString(),mass.GetInt16(),volume.GetInt16(),measures.GetString(),powerConsumption.GetInt16()).transform.SetParent(componentList,false);
             }
 
             foreach (JsonElement powerElement in powersElement.EnumerateArray()){
@@ -36,7 +36,7 @@ public class Populater:MonoBehaviour{
                             mass=powerElement.GetProperty("mass"),
                             volume=powerElement.GetProperty("volume"),
                             powerProduction=powerElement.GetProperty("powerProduction");
-                componentList.Add(PowerComponent.Get(name.GetString(),tooltip.GetString(),mass.GetInt16(),volume.GetInt16(),powerProduction.GetInt16()));
+                PowerComponent.Get(name.GetString(),tooltip.GetString(),mass.GetInt16(),volume.GetInt16(),powerProduction.GetInt16()).transform.SetParent(componentList,false);
             }
             foreach (JsonElement protectionElement in protectionsElement.EnumerateArray()){
                 JsonElement name=protectionElement.GetProperty("name"),
@@ -44,10 +44,8 @@ public class Populater:MonoBehaviour{
                             mass=protectionElement.GetProperty("mass"),
                             volume=protectionElement.GetProperty("volume"),
                             toughness=protectionElement.GetProperty("toughness");
-                componentList.Add(ProtectionComponent.Get(name.GetString(),tooltip.GetString(),mass.GetInt16(),volume.GetInt16(),toughness.GetInt16()));
+                ProtectionComponent.Get(name.GetString(),tooltip.GetString(),mass.GetInt16(),volume.GetInt16(),toughness.GetInt16()).transform.SetParent(componentList,false);
             }
-
-            componentList.transform.parent=GameObject.FindWithTag("ComponentList").transform;
             firstTime=false;
         }
     }
