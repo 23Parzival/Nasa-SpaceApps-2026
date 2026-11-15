@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DeskComman : Interactable
+public class DeskCommand : Interactable
 {
     public override void Interact()
     {
