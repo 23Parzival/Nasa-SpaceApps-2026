@@ -1,0 +1,28 @@
+[
+  "measuringInstruments":[
+    {
+      "name":"Barometer",
+      "measures":"pressure",
+      "tooltip":"Measures pressure.",
+      "mass":0,
+      "volume":0,
+      "powerConsumption":0
+    }
+  ],
+  "power":[
+    {
+      "name":"Solar Panel",
+      "tooltip":"placeholderTooltip",
+      "mass":0,
+      "volume":0,
+      "powerProduction":0
+    }
+  ],
+  "protection":[
+    "name":"placeholdershielding",
+    "tooltip":"placeholderTooltip",
+    "toughness":0,
+    "mass":0,
+    "volume":0
+  ]
+]
