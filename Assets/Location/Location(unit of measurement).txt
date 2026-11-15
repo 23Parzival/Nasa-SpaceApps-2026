@@ -1,0 +1,11 @@
+	All data was taken from sourcehttps://nssdc.gsfc.nasa.gov/planetary/factsheet/
+
+Mass (10^24 kg): quantity of matter, in septillions of kilograms. Earth is about 6.
+Density (kg/m³):  ratio of a substance's mass to its volume. 
+Gravity (m/s²): how fast things speed up when they fall. Earth is about 9.8.
+Escape Velocity (km/s): the speed a rocket needs to leave the planet
+Length Of Day (hours): time in a 'day'
+Rotation Period (hours): full rotation around the sun. A negative number means it spins backwards. retrograde.
+Temperature (°C): average temperature, in degrees Celsius. For the gas giants it’s measured at the 1 bar level (about Earth’s sea-level pressure), because they have no solid surface.
+Ring System: has a ring system?
+Natural Satellites: amount of moons
