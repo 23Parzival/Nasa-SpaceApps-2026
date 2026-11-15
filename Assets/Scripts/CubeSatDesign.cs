@@ -4,6 +4,8 @@ public class CubeSatDesign : Interactable
 {
     public override void Interact()
     {
-        Debug.Log("CubeSat Design: designing the cube yur");
+        GameObject player = GameObject.FindWithTag("Player");
+        Vector2 playerPosition = player != null ? (Vector2)player.transform.position : (Vector2)transform.position;
+        SceneFlow.OpenDesigner(playerPosition);
     }
 }

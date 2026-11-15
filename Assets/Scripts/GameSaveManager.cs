@@ -98,6 +98,7 @@ public class GameSaveManager : MonoBehaviour
         }
 
         GameSaveToLoad = GetGameSavePath(gameSave);
+        SceneFlow.ResetShipPosition();
         SceneManager.LoadScene(gameSceneName);
     }
 
