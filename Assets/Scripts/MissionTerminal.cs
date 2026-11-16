@@ -100,6 +100,8 @@ public class MissionTerminal : MonoBehaviour
             panel.SetActive(false);
         }
         GameState.minigameOpen = false;
+        //autosave, so picked missions and quota changes are kept
+        GameSaveManager.Save();
     }
 
     void OnDestroy()

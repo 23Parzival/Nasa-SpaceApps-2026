@@ -81,6 +81,90 @@ public static class MissionManager
         ActiveMission = null;
         offeredMissions = null;
         completedMissions.Clear();
+        pendingSave = null;
+    }
+
+    //game save whose missions are waiting for missions.json to be read, null = none
+    private static GameSaveData pendingSave;
+
+    //fills a game save with the current game
+    public static void WriteSave(GameSaveData save)
+    {
+        save.quota = CurrentQuota;
+        save.quotaScience = QuotaScience;
+        save.totalScience = TotalScience;
+        save.materials = Materials;
+        save.gameWon = GameWon;
+        save.activeMission = ActiveMission?.title;
+        save.hasOffered = offeredMissions != null;
+        foreach (Mission mission in offeredMissions ?? new List<Mission>())
+        {
+            save.offered.Add(mission.title);
+        }
+        foreach (Mission mission in completedMissions)
+        {
+            save.completed.Add(mission.title);
+        }
+    }
+
+    //replaces the current game with a game save
+    public static void ReadSave(GameSaveData save)
+    {
+        NewGame();
+        CurrentQuota = Mathf.Clamp(save.quota, 1, FinalQuota);
+        QuotaScience = save.quotaScience;
+        TotalScience = save.totalScience;
+        Materials = save.materials;
+        GameWon = save.gameWon;
+        pendingSave = save;
+        ResolveSavedMissions();
+    }
+
+    //turns the saved mission titles back into missions, once missions.json has been read
+    private static void ResolveSavedMissions()
+    {
+        if (pendingSave == null || !IsLoaded)
+        {
+            return;
+        }
+
+        ActiveMission = FindMission(pendingSave.activeMission);
+        if (pendingSave.hasOffered)
+        {
+            offeredMissions = new List<Mission>();
+            foreach (string title in pendingSave.offered)
+            {
+                Mission mission = FindMission(title);
+                if (mission != null)
+                {
+                    offeredMissions.Add(mission);
+                }
+            }
+        }
+        foreach (string title in pendingSave.completed)
+        {
+            Mission mission = FindMission(title);
+            if (mission != null)
+            {
+                completedMissions.Add(mission);
+            }
+        }
+        pendingSave = null;
+    }
+
+    private static Mission FindMission(string title)
+    {
+        foreach (Mission[] pool in new[] { missions.easy, missions.medium, missions.hard })
+        {
+            foreach (Mission mission in pool ?? new Mission[0])
+            {
+                if (mission != null && mission.title == title)
+                {
+                    return mission;
+                }
+            }
+        }
+        return null;
     }
 
     //reads missions.json
@@ -101,6 +185,7 @@ public static class MissionManager
         SetDifficulty(missions.easy, MissionDifficulty.Easy);
         SetDifficulty(missions.medium, MissionDifficulty.Medium);
         SetDifficulty(missions.hard, MissionDifficulty.Hard);
+        ResolveSavedMissions();
     }
 
     //missions left to choose from this quota (three to start with, picked ones are removed)

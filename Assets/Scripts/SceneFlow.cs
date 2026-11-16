@@ -12,6 +12,18 @@ public static class SceneFlow
     //where the player was standing when they left the ship, null = use the scene's spawn point
     private static Vector2? returnPosition;
 
+    //where the player waws standing on the ship, or where they left it if they're in the designer.
+    //setting it picks where the player starts the next time the ship loads
+    public static Vector2? ShipPosition
+    {
+        get
+        {
+            GameObject player = GameObject.FindWithTag("Player");
+            return player != null ? (Vector2)player.transform.position : returnPosition;
+        }
+        set { returnPosition = value; }
+    }
+
     public static void OpenDesigner(Vector2 playerPosition)
     {
         returnPosition = playerPosition;
