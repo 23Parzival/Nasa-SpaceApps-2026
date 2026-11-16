@@ -41,8 +41,11 @@ public static class MissionManager
     //all science points earned this game. this is basically game score
     public static int TotalScience { get; private set; }
 
+    //materials a new game starts with, enough to build the first cubesat
+    public const int StartingMaterials = 30;
+
     //mission rewards to spend in the cubesat designer, carries over between quotas
-    public static int Materials { get; private set; }
+    public static int Materials { get; private set; } = StartingMaterials;
 
     public static bool QuotaFilled => QuotaScience >= QuotaTarget;
 
@@ -76,7 +79,7 @@ public static class MissionManager
         CurrentQuota = 1;
         QuotaScience = 0;
         TotalScience = 0;
-        Materials = 0;
+        Materials = StartingMaterials;
         GameWon = false;
         ActiveMission = null;
         offeredMissions = null;
