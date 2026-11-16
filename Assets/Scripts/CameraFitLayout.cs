@@ -41,6 +41,15 @@ public class CameraFitLayout : MonoBehaviour
     public RectTransform resetButton;
     public float resetButtonBottomInsetPixels = 24f;
 
+    [Header("Back button (bottom of the Preview panel, under the square)")]
+    public RectTransform backButton;
+    public float backButtonBottomInsetPixels = 24f;
+
+    [Header("Component list (fills the Components panel between its label and the Reset button)")]
+    public RectTransform componentList;      // "ComponentList" (the ScrollRect)
+    public float listGapPixels = 12f;        // space above and below the list
+    public float listSidePaddingPixels = 16f; // space to the panel's left/right edges
+
     [Header("Layout (world units)")]
     [Range(0.2f, 0.5f)] public float componentsWidthShare = 0.35f;
     public float margin = 0.3f;              // space between panels and screen edge
@@ -98,6 +107,39 @@ public class CameraFitLayout : MonoBehaviour
             PlaceStats(prevLeft + squareAreaW, prevLeft + prevW, panelY);
 
         PlaceBottomElement(resetButton, compX, bottom, resetButtonBottomInsetPixels);
+        PlaceBottomElement(backButton, squareX, bottom, backButtonBottomInsetPixels);
+
+        // after the label and the Reset button, since the list fits between them
+        PlaceList(compX - compW / 2f, compX + compW / 2f, top, bottom);
+    }
+
+    void PlaceList(float worldLeft, float worldRight, float worldTop, float worldBottom)
+    {
+        if (componentList == null) return;
+        CenterAnchorsAndPivot(componentList);
+
+        Vector3 topLeft = cam.WorldToScreenPoint(new Vector3(worldLeft, worldTop, 0f));
+        Vector3 bottomRight = cam.WorldToScreenPoint(new Vector3(worldRight, worldBottom, 0f));
+
+        // top: under the instruction text if there is one, else under the Components label, else the panel's top
+        float topPx = topLeft.y;
+        RectTransform above = instructionLabel != null ? instructionLabel : componentsLabel;
+        if (above != null)
+            topPx = BottomEdge(above);
+        topPx -= listGapPixels;
+
+        // bottom: above the Reset button if there is one, else the panel's bottom
+        float bottomPx = bottomRight.y;
+        if (resetButton != null)
+            bottomPx = TopEdge(resetButton);
+        bottomPx += listGapPixels;
+
+        float s = CanvasScale(componentList);
+        float widthPx = Mathf.Max(10f, (bottomRight.x - topLeft.x) - 2f * listSidePaddingPixels);
+        float heightPx = Mathf.Max(10f, topPx - bottomPx);
+        componentList.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, widthPx / s);
+        componentList.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, heightPx / s);
+        componentList.position = new Vector3((topLeft.x + bottomRight.x) / 2f, (topPx + bottomPx) / 2f, 0f);
     }
 
     static void SetRect(Transform t, float x, float y, float w, float h)
@@ -171,10 +213,23 @@ public class CameraFitLayout : MonoBehaviour
         if (element == null) return;
         float s = CanvasScale(element);
         Vector3 screen = cam.WorldToScreenPoint(new Vector3(worldX, worldBottom, 0f));
+        // offset by the pivot so the element's bottom edge lands on the inset, whatever its pivot is
         element.position = new Vector3(
-            screen.x,
-            screen.y + insetPixels + element.rect.height * s / 2f,
+            screen.x + element.rect.width * s * (element.pivot.x - 0.5f),
+            screen.y + insetPixels + element.rect.height * s * element.pivot.y,
             0f);
+    }
+
+    // screen y of a RectTransform's top edge
+    static float TopEdge(RectTransform r)
+    {
+        return r.position.y + r.rect.height * CanvasScale(r) * (1f - r.pivot.y);
+    }
+
+    // screen y of a RectTransform's bottom edge
+    static float BottomEdge(RectTransform r)
+    {
+        return r.position.y - r.rect.height * CanvasScale(r) * r.pivot.y;
     }
 
     void PlaceStats(float worldLeft, float worldRight, float worldCenterY)
