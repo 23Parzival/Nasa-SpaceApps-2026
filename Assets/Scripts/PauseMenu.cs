@@ -69,6 +69,7 @@ public class PauseMenu : MonoBehaviour
     //called by the Main Menu button
     public void GoToMainMenu()
     {
+        GameSaveManager.Save();
         SceneManager.LoadScene(SceneFlow.StartSceneName);
     }
 

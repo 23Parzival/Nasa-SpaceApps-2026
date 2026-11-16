@@ -9,6 +9,7 @@ public class CubeSatLauncher : Interactable
         {
             Debug.Log("launched, mission complete: " + MissionManager.ActiveMission.title);
             MissionManager.CompleteActiveMission();
+            GameSaveManager.Save();
         }
         else
         {

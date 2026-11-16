@@ -1,8 +1,29 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+//everything written to a game save file. missions are saved by title
+[Serializable]
+public class GameSaveData
+{
+    public int quota;
+    public int quotaScience;
+    public int totalScience;
+    public int materials;
+    public bool gameWon;
+    public string activeMission;
+    //false = the quota's missions haven't been rolled yet (JsonUtility can't save a null list)
+    public bool hasOffered;
+    public List<string> offered = new List<string>();
+    public List<string> completed = new List<string>();
+    //false = start at the scene's spawn point
+    public bool hasPosition;
+    public Vector2 position;
+}
 
 public class GameSaveManager : MonoBehaviour
 {
@@ -20,9 +41,8 @@ public class GameSaveManager : MonoBehaviour
     [SerializeField] private GameObject deleteConfirmPanel;
     [SerializeField] private TMP_Text deleteConfirmLabel;
 
-    //game save file the game scene should load from, null = start a new game.
-    //static so that game scene reads it to load game
-    public static string GameSaveToLoad { get; private set; }
+    //game save file the current game saves to, null = not saving
+    private static string currentPath;
 
     //game save waiting on the delete prompt, 0 = none
     private int gameSaveToDelete;
@@ -38,10 +58,47 @@ public class GameSaveManager : MonoBehaviour
         return File.Exists(GetGameSavePath(gameSave));
     }
 
-    //called by MenuManager so a new game doesn't load an old game save
-    public static void ClearGameSaveToLoad()
+    //called by MenuManager. a new game saves to the first empty game save, or over the oldest one if all are used
+    public static void StartNewGameSave()
     {
-        GameSaveToLoad = null;
+        currentPath = GetGameSavePath(1);
+        for (int gameSave = 1; gameSave <= GameSaveCount; gameSave++)
+        {
+            string path = GetGameSavePath(gameSave);
+            if (!File.Exists(path))
+            {
+                currentPath = path;
+                return;
+            }
+
+            if (File.GetLastWriteTime(path) < File.GetLastWriteTime(currentPath))
+            {
+                currentPath = path;
+            }
+        }
+    }
+
+    //writes the current game to its game save file. does nothing on the start menu, where there's no game running
+    public static void Save()
+    {
+        if (currentPath == null || SceneManager.GetActiveScene().name == SceneFlow.StartSceneName)
+        {
+            return;
+        }
+
+        GameSaveData save = new GameSaveData();
+        MissionManager.WriteSave(save);
+        Vector2? position = SceneFlow.ShipPosition;
+        save.hasPosition = position != null;
+        save.position = position ?? Vector2.zero;
+        File.WriteAllText(currentPath, JsonUtility.ToJson(save));
+    }
+
+    //saves when the game is closed
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void Init()
+    {
+        Application.quitting += Save;
     }
 
     void OnEnable()
@@ -97,8 +154,15 @@ public class GameSaveManager : MonoBehaviour
             return;
         }
 
-        GameSaveToLoad = GetGameSavePath(gameSave);
-        SceneFlow.ResetShipPosition();
+        GameSaveData save = JsonUtility.FromJson<GameSaveData>(File.ReadAllText(GetGameSavePath(gameSave)));
+        if (save == null)
+        {
+            return;
+        }
+
+        currentPath = GetGameSavePath(gameSave);
+        MissionManager.ReadSave(save);
+        SceneFlow.ShipPosition = save.hasPosition ? save.position : (Vector2?)null;
         SceneManager.LoadScene(gameSceneName);
     }
 
